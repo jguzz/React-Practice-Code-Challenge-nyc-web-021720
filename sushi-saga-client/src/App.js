@@ -22,9 +22,8 @@ class App extends Component {
   }
 
   handleMore = () => {
-    this.setState({
-      beggining: this.state.beggining + 4, end: this.state.end + 4
-    })
+    console.log(this.state.end)
+    this.state.end + 4 > this.state.sushi.length ? this.setState({ beggining: 0, end: 4}) : this.setState({ beggining: this.state.beggining + 4, end: this.state.end + 4})
   }
   addMoney = (amount) => {
     this.setState({budget: this.state.budget + amount})
