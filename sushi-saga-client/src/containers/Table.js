@@ -12,7 +12,10 @@ const Table = (props) => {
     <Fragment>
       <h1 className="remaining">
         You have: ${props.budget} remaining!
+        <button onClick={() => props.addMoney(20)}> Add $20</button>
+    
       </h1>
+      
       <div className="table">
         <div className="stack">
           {

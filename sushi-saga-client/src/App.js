@@ -11,7 +11,7 @@ class App extends Component {
     beggining: 0,
     end: 4,
     eaten: [],
-    budget: 10
+    budget: 40
   }
 
   componentDidMount(){
@@ -19,12 +19,15 @@ class App extends Component {
     fetch(API)
     .then( res => res.json())
     .then( sushi => this.setState({sushi}))
-
   }
+
   handleMore = () => {
     this.setState({
       beggining: this.state.beggining + 4, end: this.state.end + 4
     })
+  }
+  addMoney = (amount) => {
+    this.setState({budget: this.state.budget + amount})
   }
 
   updateSushi = (id) => {
@@ -38,11 +41,10 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state)
     return (
       <div className="app">
         <SushiContainer  eatSushi={this.eatSushi} handleMore={this.handleMore} sushi={this.state.sushi} beggining={this.state.beggining} end={this.state.end}/>
-        <Table budget={this.state.budget} eaten={this.state.eaten}/>
+        <Table budget={this.state.budget} eaten={this.state.eaten} addMoney={this.addMoney}/>
       </div>
     );
   }
